@@ -36,10 +36,10 @@ const Contact = () => {
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
             Get in Touch
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-semibold">
             Have questions about our dress designer? Need help with your design? 
             We're here to help you create the perfect dress.
           </p>
@@ -48,13 +48,13 @@ const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <Card className="p-8">
-            <h2 className="text-2xl font-serif font-semibold text-gray-900 mb-6">
+            <h2 className="text-2xl font-black text-gray-900 mb-6">
               Send us a Message
             </h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="name" className="block text-sm font-bold text-gray-700 mb-2">
                     Your Name
                   </label>
                   <Input
@@ -69,7 +69,7 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="email" className="block text-sm font-bold text-gray-700 mb-2">
                     Email Address
                   </label>
                   <Input
@@ -86,7 +86,7 @@ const Contact = () => {
               </div>
               
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="subject" className="block text-sm font-bold text-gray-700 mb-2">
                   Subject
                 </label>
                 <Input
@@ -102,7 +102,7 @@ const Contact = () => {
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-bold text-gray-700 mb-2">
                   Message
                 </label>
                 <Textarea
@@ -119,7 +119,7 @@ const Contact = () => {
               
               <Button 
                 type="submit" 
-                className="w-full bg-rose-500 hover:bg-rose-600 text-white py-3"
+                className="w-full bg-rose-500 hover:bg-rose-600 text-white py-3 font-bold"
               >
                 Send Message
               </Button>
@@ -129,7 +129,7 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             <Card className="p-6">
-              <h3 className="text-xl font-serif font-semibold text-gray-900 mb-4">
+              <h3 className="text-xl font-black text-gray-900 mb-4">
                 Contact Information
               </h3>
               <div className="space-y-4">
@@ -138,8 +138,8 @@ const Contact = () => {
                     <Mail className="w-5 h-5 text-rose-600" />
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900">Email</p>
-                    <p className="text-gray-600">hello@udesign-dress-creator.com</p>
+                    <p className="font-bold text-gray-900">Email</p>
+                    <p className="text-gray-600 font-medium">hello@udesign-dress-creator.com</p>
                   </div>
                 </div>
                 
@@ -148,8 +148,8 @@ const Contact = () => {
                     <Phone className="w-5 h-5 text-rose-600" />
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900">Phone</p>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
+                    <p className="font-bold text-gray-900">Phone</p>
+                    <p className="text-gray-600 font-medium">+1 (555) 123-4567</p>
                   </div>
                 </div>
                 
@@ -158,15 +158,15 @@ const Contact = () => {
                     <MapPin className="w-5 h-5 text-rose-600" />
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900">Address</p>
-                    <p className="text-gray-600">123 Fashion District<br />New York, NY 10001</p>
+                    <p className="font-bold text-gray-900">Address</p>
+                    <p className="text-gray-600 font-medium">123 Fashion District<br />New York, NY 10001</p>
                   </div>
                 </div>
               </div>
             </Card>
 
             <Card className="p-6">
-              <h3 className="text-xl font-serif font-semibold text-gray-900 mb-4">
+              <h3 className="text-xl font-black text-gray-900 mb-4">
                 Business Hours
               </h3>
               <div className="flex items-start space-x-3">
@@ -175,30 +175,30 @@ const Contact = () => {
                 </div>
                 <div className="space-y-2">
                   <div className="flex justify-between">
-                    <span className="text-gray-700">Monday - Friday</span>
-                    <span className="text-gray-600">9:00 AM - 6:00 PM</span>
+                    <span className="text-gray-700 font-semibold">Monday - Friday</span>
+                    <span className="text-gray-600 font-medium">9:00 AM - 6:00 PM</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-700">Saturday</span>
-                    <span className="text-gray-600">10:00 AM - 4:00 PM</span>
+                    <span className="text-gray-700 font-semibold">Saturday</span>
+                    <span className="text-gray-600 font-medium">10:00 AM - 4:00 PM</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-700">Sunday</span>
-                    <span className="text-gray-600">Closed</span>
+                    <span className="text-gray-700 font-semibold">Sunday</span>
+                    <span className="text-gray-600 font-medium">Closed</span>
                   </div>
                 </div>
               </div>
             </Card>
 
             <Card className="p-6 bg-gradient-to-r from-rose-50 to-pink-50 border-rose-200">
-              <h3 className="text-xl font-serif font-semibold text-gray-900 mb-3">
+              <h3 className="text-xl font-black text-gray-900 mb-3">
                 Quick Support
               </h3>
-              <p className="text-gray-600 mb-4">
+              <p className="text-gray-600 mb-4 font-medium">
                 Need immediate help? Check out our FAQ section or start designing 
                 right away with our intuitive tools.
               </p>
-              <Button variant="outline" className="border-rose-300 text-rose-700 hover:bg-rose-50">
+              <Button variant="outline" className="border-rose-300 text-rose-700 hover:bg-rose-50 font-bold">
                 Visit Help Center
               </Button>
             </Card>
