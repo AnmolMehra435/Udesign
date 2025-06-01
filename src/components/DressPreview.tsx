@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 
 interface DressConfig {
@@ -104,7 +105,7 @@ const renderGarment = (config: DressConfig) => {
             className="transition-all duration-300"
           />
           <path
-            d="M 60 120 L 85 250 L 70 250 L 50 120 M 140 120 L 115 250 L 130 250 L 150 120"
+            d="M 70 120 L 85 250 L 75 250 L 60 120 M 130 120 L 115 250 L 125 250 L 140 120"
             fill={color}
             stroke="#374151"
             strokeWidth="2"
@@ -143,7 +144,7 @@ const renderGarment = (config: DressConfig) => {
             className="transition-all duration-300"
           />
           <path
-            d="M 65 120 L 85 250 L 70 250 L 55 120 M 135 120 L 115 250 L 130 250 L 145 120"
+            d="M 65 120 L 80 250 L 70 250 L 55 120 M 135 120 L 120 250 L 130 250 L 145 120"
             fill={color}
             stroke="#374151"
             strokeWidth="2"
@@ -225,7 +226,19 @@ const getColorValue = (colorName: string): string => {
     neutral: '#737373',
     black: '#000000',
     white: '#ffffff',
-    lightGray: '#d1d5db'
+    lightGray: '#d1d5db',
+    navy: '#1e3a8a',
+    emerald: '#047857',
+    purple: '#7c2d92',
+    rose: '#e11d48',
+    amber: '#d97706',
+    teal: '#0f766e',
+    indigo: '#4338ca',
+    crimson: '#dc143c',
+    forest: '#228b22',
+    royal: '#4169e1',
+    burgundy: '#800020',
+    coral: '#ff7f50'
   };
   return colors[colorName as keyof typeof colors] || '#374151';
 };

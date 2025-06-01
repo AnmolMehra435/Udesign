@@ -1,4 +1,3 @@
-
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
@@ -61,7 +60,19 @@ const DesignControls = ({ config, onConfigChange }: DesignControlsProps) => {
     { id: 'neutral', name: 'Neutral', hex: '#737373' },
     { id: 'black', name: 'Black', hex: '#000000' },
     { id: 'white', name: 'White', hex: '#ffffff' },
-    { id: 'lightGray', name: 'Light Gray', hex: '#d1d5db' }
+    { id: 'lightGray', name: 'Light Gray', hex: '#d1d5db' },
+    { id: 'navy', name: 'Navy', hex: '#1e3a8a' },
+    { id: 'emerald', name: 'Emerald', hex: '#047857' },
+    { id: 'purple', name: 'Purple', hex: '#7c2d92' },
+    { id: 'rose', name: 'Rose', hex: '#e11d48' },
+    { id: 'amber', name: 'Amber', hex: '#d97706' },
+    { id: 'teal', name: 'Teal', hex: '#0f766e' },
+    { id: 'indigo', name: 'Indigo', hex: '#4338ca' },
+    { id: 'crimson', name: 'Crimson', hex: '#dc143c' },
+    { id: 'forest', name: 'Forest', hex: '#228b22' },
+    { id: 'royal', name: 'Royal', hex: '#4169e1' },
+    { id: 'burgundy', name: 'Burgundy', hex: '#800020' },
+    { id: 'coral', name: 'Coral', hex: '#ff7f50' }
   ];
 
   const updateConfig = (key: keyof DressConfig, value: string) => {
@@ -181,7 +192,7 @@ const DesignControls = ({ config, onConfigChange }: DesignControlsProps) => {
               title={option.name}
             >
               <div className="h-8 w-full rounded"></div>
-              <div className={`text-xs mt-2 font-bold ${option.hex === '#000000' || option.hex === '#374151' ? 'text-white' : 'text-gray-700'}`}>{option.name.split(' ')[0]}</div>
+              <div className={`text-xs mt-2 font-bold ${['#000000', '#374151', '#1e3a8a', '#047857', '#7c2d92', '#0f766e', '#4338ca', '#800020'].includes(option.hex) ? 'text-white' : 'text-gray-700'}`}>{option.name.split(' ')[0]}</div>
             </button>
           ))}
         </div>
