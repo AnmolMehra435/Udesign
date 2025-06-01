@@ -104,8 +104,17 @@ const renderGarment = (config: DressConfig) => {
             strokeWidth="2"
             className="transition-all duration-300"
           />
+          {/* Left leg */}
           <path
-            d="M 70 120 L 85 250 L 75 250 L 60 120 M 130 120 L 115 250 L 125 250 L 140 120"
+            d="M 70 120 L 85 250 L 75 250 L 60 120 Z"
+            fill={color}
+            stroke="#374151"
+            strokeWidth="2"
+            className="transition-all duration-300"
+          />
+          {/* Right leg */}
+          <path
+            d="M 130 120 L 115 250 L 125 250 L 140 120 Z"
             fill={color}
             stroke="#374151"
             strokeWidth="2"
@@ -117,6 +126,7 @@ const renderGarment = (config: DressConfig) => {
     case 'coat':
       return (
         <>
+          {/* Main coat body */}
           <path
             d="M 50 80 L 150 80 L 155 250 L 45 250 Z"
             fill={color}
@@ -124,18 +134,45 @@ const renderGarment = (config: DressConfig) => {
             strokeWidth="2"
             className="transition-all duration-300"
           />
+          {/* Left lapel */}
           <path
-            d="M 40 85 Q 30 90 25 160 Q 30 165 45 160 L 50 120 M 160 85 Q 170 90 175 160 Q 170 165 155 160 L 150 120"
+            d="M 40 85 L 50 80 L 50 120 L 45 125 Q 35 130 35 140 Q 35 150 45 145 L 50 140"
             fill={color}
             stroke="#374151"
             strokeWidth="2"
             className="transition-all duration-300"
+          />
+          {/* Right lapel */}
+          <path
+            d="M 160 85 L 150 80 L 150 120 L 155 125 Q 165 130 165 140 Q 165 150 155 145 L 150 140"
+            fill={color}
+            stroke="#374151"
+            strokeWidth="2"
+            className="transition-all duration-300"
+          />
+          {/* Long sleeves for coat */}
+          <path
+            d="M 50 80 Q 25 90 20 160 Q 25 165 45 160 L 50 120 Z"
+            fill={color}
+            stroke="#374151"
+            strokeWidth="2"
+            className="transition-all duration-300"
+            opacity="0.8"
+          />
+          <path
+            d="M 150 80 Q 175 90 180 160 Q 175 165 155 160 L 150 120 Z"
+            fill={color}
+            stroke="#374151"
+            strokeWidth="2"
+            className="transition-all duration-300"
+            opacity="0.8"
           />
         </>
       );
     case 'pants':
       return (
         <>
+          {/* Waistband */}
           <path
             d="M 70 50 L 130 50 L 135 120 L 65 120 Z"
             fill={color}
@@ -143,8 +180,17 @@ const renderGarment = (config: DressConfig) => {
             strokeWidth="2"
             className="transition-all duration-300"
           />
+          {/* Left leg */}
           <path
-            d="M 65 120 L 80 250 L 70 250 L 55 120 M 135 120 L 120 250 L 130 250 L 145 120"
+            d="M 65 120 L 80 250 L 70 250 L 55 120 Z"
+            fill={color}
+            stroke="#374151"
+            strokeWidth="2"
+            className="transition-all duration-300"
+          />
+          {/* Right leg */}
+          <path
+            d="M 135 120 L 120 250 L 130 250 L 145 120 Z"
             fill={color}
             stroke="#374151"
             strokeWidth="2"
