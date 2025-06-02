@@ -1,4 +1,3 @@
-
 import { Link, useLocation } from 'react-router-dom';
 import { Palette, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -66,7 +65,7 @@ const Navigation = () => {
                   isActive('/about') ? 'text-gray-900 dark:text-gray-100 border-b-2 border-gray-900 dark:border-gray-100' : 'text-gray-700 dark:text-gray-300'
                 }`}
               >
-                About Us
+                About
               </Link>
               <Link
                 to="/contact"
@@ -75,6 +74,14 @@ const Navigation = () => {
                 }`}
               >
                 Contact
+              </Link>
+              <Link
+                to="/auth"
+                className={`text-sm font-semibold transition-colors hover:text-gray-600 dark:hover:text-gray-300 ${
+                  isActive('/auth') ? 'text-gray-900 dark:text-gray-100 border-b-2 border-gray-900 dark:border-gray-100' : 'text-gray-700 dark:text-gray-300'
+                }`}
+              >
+                Login / Sign Up
               </Link>
             </div>
             

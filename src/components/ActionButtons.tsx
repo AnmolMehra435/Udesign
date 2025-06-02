@@ -1,14 +1,16 @@
-
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Heart, ShoppingCart } from 'lucide-react';
 
 const ActionButtons = () => {
+  const navigate = useNavigate();
+
   const handleWishlist = () => {
     console.log('Added to wishlist - dummy function');
   };
 
   const handleBuyNow = () => {
-    console.log('Buy now clicked - dummy function');
+    navigate('/checkout');
   };
 
   return (
