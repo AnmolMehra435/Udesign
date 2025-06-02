@@ -1,11 +1,12 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Palette, Moon, Sun } from 'lucide-react';
+import { Palette, Moon, Sun, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
 
 const Navigation = () => {
   const location = useLocation();
   const [isDark, setIsDark] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const theme = localStorage.getItem('theme');
@@ -30,6 +31,18 @@ const Navigation = () => {
     return location.pathname === path;
   };
 
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  const navigationLinks = [
+    { path: '/', label: 'Home' },
+    { path: '/designer', label: 'Designer' },
+    { path: '/about', label: 'About' },
+    { path: '/contact', label: 'Contact' },
+    { path: '/auth', label: 'Login / Sign Up' },
+  ];
+
   return (
     <nav className="bg-white dark:bg-gray-900 shadow-sm border-b border-gray-200 dark:border-gray-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,48 +54,20 @@ const Navigation = () => {
             </span>
           </Link>
           
-          <div className="flex items-center space-x-6">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-6">
             <div className="flex space-x-8">
-              <Link
-                to="/"
-                className={`text-sm font-semibold transition-colors hover:text-gray-600 dark:hover:text-gray-300 ${
-                  isActive('/') ? 'text-gray-900 dark:text-gray-100 border-b-2 border-gray-900 dark:border-gray-100' : 'text-gray-700 dark:text-gray-300'
-                }`}
-              >
-                Home
-              </Link>
-              <Link
-                to="/designer"
-                className={`text-sm font-semibold transition-colors hover:text-gray-600 dark:hover:text-gray-300 ${
-                  isActive('/designer') ? 'text-gray-900 dark:text-gray-100 border-b-2 border-gray-900 dark:border-gray-100' : 'text-gray-700 dark:text-gray-300'
-                }`}
-              >
-                Designer
-              </Link>
-              <Link
-                to="/about"
-                className={`text-sm font-semibold transition-colors hover:text-gray-600 dark:hover:text-gray-300 ${
-                  isActive('/about') ? 'text-gray-900 dark:text-gray-100 border-b-2 border-gray-900 dark:border-gray-100' : 'text-gray-700 dark:text-gray-300'
-                }`}
-              >
-                About
-              </Link>
-              <Link
-                to="/contact"
-                className={`text-sm font-semibold transition-colors hover:text-gray-600 dark:hover:text-gray-300 ${
-                  isActive('/contact') ? 'text-gray-900 dark:text-gray-100 border-b-2 border-gray-900 dark:border-gray-100' : 'text-gray-700 dark:text-gray-300'
-                }`}
-              >
-                Contact
-              </Link>
-              <Link
-                to="/auth"
-                className={`text-sm font-semibold transition-colors hover:text-gray-600 dark:hover:text-gray-300 ${
-                  isActive('/auth') ? 'text-gray-900 dark:text-gray-100 border-b-2 border-gray-900 dark:border-gray-100' : 'text-gray-700 dark:text-gray-300'
-                }`}
-              >
-                Login / Sign Up
-              </Link>
+              {navigationLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`text-sm font-semibold transition-colors hover:text-gray-600 dark:hover:text-gray-300 ${
+                    isActive(link.path) ? 'text-gray-900 dark:text-gray-100 border-b-2 border-gray-900 dark:border-gray-100' : 'text-gray-700 dark:text-gray-300'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
             </div>
             
             <Button
@@ -93,6 +78,54 @@ const Navigation = () => {
             >
               {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </Button>
+          </div>
+
+          {/* Mobile Navigation Button */}
+          <div className="flex items-center space-x-4 md:hidden">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={toggleTheme}
+              className="border-gray-300 dark:border-gray-600"
+            >
+              {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-gray-700 dark:text-gray-300"
+            >
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </Button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <div
+          className={`${
+            isMenuOpen ? 'block' : 'hidden'
+          } md:hidden pb-4 transition-all duration-300 ease-in-out`}
+        >
+          <div className="flex flex-col space-y-2 pt-2">
+            {navigationLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={closeMenu}
+                className={`px-4 py-2 text-sm font-semibold transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md ${
+                  isActive(link.path)
+                    ? 'text-gray-900 dark:text-gray-100 bg-gray-100 dark:bg-gray-800'
+                    : 'text-gray-700 dark:text-gray-300'
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
