@@ -7,12 +7,20 @@ import { Card } from '../components/ui/card';
 import { Label } from '../components/ui/label';
 import { Textarea } from '../components/ui/textarea';
 import { useToast } from '../components/ui/use-toast';
-import { ShoppingBag, CreditCard, MapPin, Phone, User, Mail } from 'lucide-react';
+import { ShoppingBag, MapPin, Phone, User, Mail } from 'lucide-react';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
 
 const Checkout = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<string>('');
+  const [showCardDetails, setShowCardDetails] = useState(false);
+
+  const handlePaymentMethodChange = (value: string) => {
+    setSelectedPaymentMethod(value);
+    setShowCardDetails(value === 'card');
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -49,8 +57,9 @@ const Checkout = () => {
           {/* Order Form */}
           <Card className="p-6">
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Name */}
               <div className="space-y-2">
-                <Label htmlFor="name">Full Name</Label>
+                <Label htmlFor="name">Full Name *</Label>
                 <div className="relative">
                   <User className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                   <Input
@@ -62,8 +71,38 @@ const Checkout = () => {
                 </div>
               </div>
 
+              {/* Contact */}
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="contact">Contact Number *</Label>
+                <div className="relative">
+                  <Phone className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                  <Input
+                    id="contact"
+                    type="tel"
+                    placeholder="Enter your contact number"
+                    className="pl-9"
+                    required
+                  />
+                </div>
+              </div>
+
+              {/* Alternate Contact */}
+              <div className="space-y-2">
+                <Label htmlFor="altContact">Alternate Contact (Optional)</Label>
+                <div className="relative">
+                  <Phone className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                  <Input
+                    id="altContact"
+                    type="tel"
+                    placeholder="Enter alternate contact number"
+                    className="pl-9"
+                  />
+                </div>
+              </div>
+
+              {/* Email */}
+              <div className="space-y-2">
+                <Label htmlFor="email">Email (Optional)</Label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                   <Input
@@ -71,71 +110,122 @@ const Checkout = () => {
                     type="email"
                     placeholder="Enter your email"
                     className="pl-9"
-                    required
                   />
                 </div>
               </div>
 
+              {/* Street Address */}
               <div className="space-y-2">
-                <Label htmlFor="phone">Phone Number</Label>
-                <div className="relative">
-                  <Phone className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                  <Input
-                    id="phone"
-                    type="tel"
-                    placeholder="Enter your phone number"
-                    className="pl-9"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="address">Delivery Address</Label>
+                <Label htmlFor="street">Street Address *</Label>
                 <div className="relative">
                   <MapPin className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                  <Textarea
-                    id="address"
-                    placeholder="Enter your complete delivery address"
-                    className="pl-9 min-h-[100px]"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="card">Card Number</Label>
-                <div className="relative">
-                  <CreditCard className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                   <Input
-                    id="card"
-                    placeholder="Enter your card number"
+                    id="street"
+                    placeholder="Enter your street address"
                     className="pl-9"
                     required
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="expiry">Expiry Date</Label>
-                  <Input
-                    id="expiry"
-                    placeholder="MM/YY"
-                    required
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="cvv">CVV</Label>
-                  <Input
-                    id="cvv"
-                    type="password"
-                    maxLength={3}
-                    placeholder="***"
-                    required
-                  />
-                </div>
+              {/* Area & Landmark */}
+              <div className="space-y-2">
+                <Label htmlFor="area">Area & Landmark</Label>
+                <Input
+                  id="area"
+                  placeholder="Enter area and nearby landmark"
+                />
               </div>
+
+              {/* Post Code */}
+              <div className="space-y-2">
+                <Label htmlFor="postcode">Post Code *</Label>
+                <Input
+                  id="postcode"
+                  placeholder="Enter post code"
+                  required
+                />
+              </div>
+
+              {/* City */}
+              <div className="space-y-2">
+                <Label htmlFor="city">City *</Label>
+                <Input
+                  id="city"
+                  placeholder="Enter city"
+                  required
+                />
+              </div>
+
+              {/* State */}
+              <div className="space-y-2">
+                <Label htmlFor="state">State *</Label>
+                <Input
+                  id="state"
+                  placeholder="Enter state"
+                  required
+                />
+              </div>
+
+              {/* Country */}
+              <div className="space-y-2">
+                <Label htmlFor="country">Country *</Label>
+                <Input
+                  id="country"
+                  placeholder="Enter country"
+                  required
+                />
+              </div>
+
+              {/* Payment Method Selection */}
+              <div className="space-y-2">
+                <Label htmlFor="paymentMethod">Payment Method *</Label>
+                <Select onValueChange={handlePaymentMethodChange}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select payment method" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="card">Credit/Debit Card</SelectItem>
+                    <SelectItem value="upi">UPI</SelectItem>
+                    <SelectItem value="cod">Cash on Delivery</SelectItem>
+                    <SelectItem value="netbanking">Net Banking</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              {/* Card Details (shown only when card payment is selected) */}
+              {showCardDetails && (
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="cardNumber">Card Number</Label>
+                    <Input
+                      id="cardNumber"
+                      placeholder="Enter card number"
+                      required
+                    />
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="expiry">Expiry Date</Label>
+                      <Input
+                        id="expiry"
+                        placeholder="MM/YY"
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="cvv">CVV</Label>
+                      <Input
+                        id="cvv"
+                        type="password"
+                        maxLength={3}
+                        placeholder="***"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
 
               <Button 
                 type="submit" 
