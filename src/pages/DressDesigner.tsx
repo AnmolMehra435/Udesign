@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import SizeSelector from '@/components/SizeSelector';
@@ -6,12 +5,14 @@ import ColorPicker from '@/components/ColorPicker';
 import ImageUploader from '@/components/ImageUploader';
 import MannequinPreview from '@/components/MannequinPreview';
 import ActionButtons from '@/components/ActionButtons';
+import FabricSelector from '@/components/FabricSelector';
 
 interface TShirtConfig {
   size: string;
   gender: 'M' | 'F';
   color: string;
   customImage: string | null;
+  fabric: string;
 }
 
 const DressDesigner = () => {
@@ -19,7 +20,8 @@ const DressDesigner = () => {
     size: 'M',
     gender: 'M',
     color: '#000000',
-    customImage: null
+    customImage: null,
+    fabric: 'cotton'
   });
 
   const updateConfig = (updates: Partial<TShirtConfig>) => {
@@ -37,7 +39,7 @@ const DressDesigner = () => {
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto font-semibold">
             Create your perfect custom T-shirt with our advanced 3D preview. 
-            Choose size, color, and upload your own design!
+            Choose size, color, fabric, and upload your own design!
           </p>
         </div>
 
@@ -54,6 +56,11 @@ const DressDesigner = () => {
             <ColorPicker
               selectedColor={tshirtConfig.color}
               onColorChange={(color) => updateConfig({ color })}
+            />
+
+            <FabricSelector
+              selectedFabric={tshirtConfig.fabric}
+              onFabricChange={(fabric) => updateConfig({ fabric })}
             />
             
             <ImageUploader
