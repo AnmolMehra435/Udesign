@@ -15,9 +15,9 @@ const MannequinPreview = ({ config }: MannequinPreviewProps) => {
     <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
       <div className="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 w-full h-96 rounded-xl flex items-center justify-center">
         <div className="relative">
-          {/* Ultra-realistic 3D Human Mannequin SVG */}
-          <svg width="240" height="340" viewBox="0 0 240 340" className="drop-shadow-2xl">
-            {/* Define realistic gradients */}
+          {/* Ultra-realistic 3D Bodybuilder Mannequin SVG */}
+          <svg width="280" height="380" viewBox="0 0 280 380" className="drop-shadow-2xl">
+            {/* Define realistic gradients for muscular physique */}
             <defs>
               <linearGradient id="skinGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#FFD5B8" />
@@ -39,10 +39,22 @@ const MannequinPreview = ({ config }: MannequinPreviewProps) => {
                 <stop offset="100%" stopColor="#3E2723" />
               </linearGradient>
               
-              <linearGradient id="muscleGradient" x1="30%" y1="0%" x2="70%" y2="100%">
+              <linearGradient id="muscleGradient" x1="20%" y1="0%" x2="80%" y2="100%">
                 <stop offset="0%" stopColor="#FFCBA4" />
-                <stop offset="50%" stopColor="#E8B796" />
-                <stop offset="100%" stopColor="#D4A373" />
+                <stop offset="30%" stopColor="#E8B796" />
+                <stop offset="70%" stopColor="#D4A373" />
+                <stop offset="100%" stopColor="#C4956C" />
+              </linearGradient>
+              
+              <linearGradient id="muscleHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#FFE4C7" />
+                <stop offset="50%" stopColor="#FFCBA4" />
+                <stop offset="100%" stopColor="#E8B796" />
+              </linearGradient>
+              
+              <linearGradient id="muscleShadow" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#D4A373" />
+                <stop offset="100%" stopColor="#B8956C" />
               </linearGradient>
               
               <linearGradient id="tshirtGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -62,7 +74,7 @@ const MannequinPreview = ({ config }: MannequinPreviewProps) => {
             <g>
               {gender === 'M' ? (
                 <path 
-                  d="M 95 15 Q 120 5 145 15 Q 150 20 148 35 Q 145 45 140 50 L 100 50 Q 90 45 92 35 Q 90 20 95 15 Z"
+                  d="M 115 15 Q 140 5 165 15 Q 170 20 168 35 Q 165 45 160 50 L 120 50 Q 110 45 112 35 Q 110 20 115 15 Z"
                   fill="url(#hairGradient)"
                   stroke="#2D1B12"
                   strokeWidth="0.5"
@@ -71,26 +83,22 @@ const MannequinPreview = ({ config }: MannequinPreviewProps) => {
                 <g>
                   {/* Female long hair */}
                   <path 
-                    d="M 85 20 Q 120 0 155 20 Q 160 25 158 40 Q 155 60 150 80 L 145 100 Q 140 110 130 115 L 110 118 Q 100 115 95 110 L 90 100 Q 85 80 82 60 Q 80 40 82 25 Q 80 20 85 20 Z"
+                    d="M 105 20 Q 140 0 175 20 Q 180 25 178 40 Q 175 60 170 80 L 165 100 Q 160 110 150 115 L 130 118 Q 120 115 115 110 L 110 100 Q 105 80 102 60 Q 100 40 102 25 Q 100 20 105 20 Z"
                     fill="url(#hairGradient)"
                     stroke="#2D1B12"
                     strokeWidth="0.5"
                   />
-                  {/* Hair strands */}
-                  <path d="M 95 25 Q 98 30 95 35" stroke="#2D1B12" strokeWidth="0.3" fill="none" />
-                  <path d="M 145 25 Q 142 30 145 35" stroke="#2D1B12" strokeWidth="0.3" fill="none" />
+                  <path d="M 115 25 Q 118 30 115 35" stroke="#2D1B12" strokeWidth="0.3" fill="none" />
+                  <path d="M 165 25 Q 162 30 165 35" stroke="#2D1B12" strokeWidth="0.3" fill="none" />
                 </g>
               )}
             </g>
             
             {/* Head with realistic proportions */}
             <g>
-              {/* Head shadow */}
-              <ellipse cx="122" cy="50" rx="24" ry="32" fill="url(#shadowGradient)" />
-              
-              {/* Main head shape */}
+              <ellipse cx="142" cy="50" rx="24" ry="32" fill="url(#shadowGradient)" />
               <ellipse 
-                cx="120" 
+                cx="140" 
                 cy="48" 
                 rx="22" 
                 ry="30" 
@@ -100,154 +108,194 @@ const MannequinPreview = ({ config }: MannequinPreviewProps) => {
               />
               
               {/* Forehead highlight */}
-              <ellipse cx="120" cy="35" rx="15" ry="8" fill="#FFE4C7" opacity="0.6" />
+              <ellipse cx="140" cy="35" rx="15" ry="8" fill="#FFE4C7" opacity="0.6" />
               
               {/* Cheekbones */}
-              <ellipse cx="108" cy="50" rx="4" ry="6" fill="#E8B796" opacity="0.5" />
-              <ellipse cx="132" cy="50" rx="4" ry="6" fill="#E8B796" opacity="0.5" />
+              <ellipse cx="128" cy="50" rx="4" ry="6" fill="#E8B796" opacity="0.5" />
+              <ellipse cx="152" cy="50" rx="4" ry="6" fill="#E8B796" opacity="0.5" />
               
-              {/* Eyes with realistic details */}
+              {/* Eyes */}
               <g>
-                {/* Eye sockets */}
-                <ellipse cx="112" cy="42" rx="4" ry="2.5" fill="#E8B796" opacity="0.3" />
-                <ellipse cx="128" cy="42" rx="4" ry="2.5" fill="#E8B796" opacity="0.3" />
-                
-                {/* Eyeballs */}
-                <ellipse cx="112" cy="42" rx="3" ry="2" fill="#FFFFFF" />
-                <ellipse cx="128" cy="42" rx="3" ry="2" fill="#FFFFFF" />
-                
-                {/* Iris */}
-                <circle cx="112" cy="42" r="1.5" fill="#4A5568" />
-                <circle cx="128" cy="42" r="1.5" fill="#4A5568" />
-                
-                {/* Pupils */}
-                <circle cx="112" cy="42" r="0.8" fill="#000000" />
-                <circle cx="128" cy="42" r="0.8" fill="#000000" />
-                
-                {/* Eye highlights */}
-                <circle cx="112.5" cy="41.5" r="0.3" fill="#FFFFFF" />
-                <circle cx="128.5" cy="41.5" r="0.3" fill="#FFFFFF" />
-                
-                {/* Eyelashes */}
-                <path d="M 109 40.5 Q 112 39 115 40.5" stroke="#2D3748" strokeWidth="0.5" fill="none" />
-                <path d="M 125 40.5 Q 128 39 131 40.5" stroke="#2D3748" strokeWidth="0.5" fill="none" />
+                <ellipse cx="132" cy="42" rx="4" ry="2.5" fill="#E8B796" opacity="0.3" />
+                <ellipse cx="148" cy="42" rx="4" ry="2.5" fill="#E8B796" opacity="0.3" />
+                <ellipse cx="132" cy="42" rx="3" ry="2" fill="#FFFFFF" />
+                <ellipse cx="148" cy="42" rx="3" ry="2" fill="#FFFFFF" />
+                <circle cx="132" cy="42" r="1.5" fill="#4A5568" />
+                <circle cx="148" cy="42" r="1.5" fill="#4A5568" />
+                <circle cx="132" cy="42" r="0.8" fill="#000000" />
+                <circle cx="148" cy="42" r="0.8" fill="#000000" />
+                <circle cx="132.5" cy="41.5" r="0.3" fill="#FFFFFF" />
+                <circle cx="148.5" cy="41.5" r="0.3" fill="#FFFFFF" />
+                <path d="M 129 40.5 Q 132 39 135 40.5" stroke="#2D3748" strokeWidth="0.5" fill="none" />
+                <path d="M 145 40.5 Q 148 39 151 40.5" stroke="#2D3748" strokeWidth="0.5" fill="none" />
               </g>
               
-              {/* Eyebrows with individual hairs */}
+              {/* Eyebrows */}
               <g>
-                <path d="M 108 38 Q 112 37 116 38" stroke="#654321" strokeWidth="1" fill="none" />
-                <path d="M 124 38 Q 128 37 132 38" stroke="#654321" strokeWidth="1" fill="none" />
-                <path d="M 109 37.5 L 110 38.5" stroke="#654321" strokeWidth="0.3" />
-                <path d="M 111 37.2 L 112 38.2" stroke="#654321" strokeWidth="0.3" />
-                <path d="M 129 37.5 L 130 38.5" stroke="#654321" strokeWidth="0.3" />
-                <path d="M 131 37.2 L 132 38.2" stroke="#654321" strokeWidth="0.3" />
+                <path d="M 128 38 Q 132 37 136 38" stroke="#654321" strokeWidth="1" fill="none" />
+                <path d="M 144 38 Q 148 37 152 38" stroke="#654321" strokeWidth="1" fill="none" />
               </g>
               
-              {/* Nose with nostrils */}
+              {/* Nose */}
               <g>
-                <path d="M 118 47 Q 120 52 122 47" fill="#E8B796" />
-                <path d="M 120 48 L 118 51 Q 120 52 122 51 Z" fill="#FFCBA4" />
-                <ellipse cx="119" cy="51" rx="0.5" ry="0.8" fill="#D4A373" />
-                <ellipse cx="121" cy="51" rx="0.5" ry="0.8" fill="#D4A373" />
+                <path d="M 138 47 Q 140 52 142 47" fill="#E8B796" />
+                <path d="M 140 48 L 138 51 Q 140 52 142 51 Z" fill="#FFCBA4" />
+                <ellipse cx="139" cy="51" rx="0.5" ry="0.8" fill="#D4A373" />
+                <ellipse cx="141" cy="51" rx="0.5" ry="0.8" fill="#D4A373" />
               </g>
               
-              {/* Mouth with lips */}
+              {/* Mouth */}
               <g>
-                <path d="M 116 55 Q 120 58 124 55" stroke="#B8860B" strokeWidth="1.5" fill="none" />
-                <path d="M 117 56 Q 120 57 123 56" fill="#CD853F" />
-                <path d="M 118 56.5 Q 120 57.2 122 56.5" stroke="#FFFFFF" strokeWidth="0.3" fill="none" opacity="0.6" />
+                <path d="M 136 55 Q 140 58 144 55" stroke="#B8860B" strokeWidth="1.5" fill="none" />
+                <path d="M 137 56 Q 140 57 143 56" fill="#CD853F" />
               </g>
               
               {/* Chin definition */}
-              <ellipse cx="120" cy="65" rx="8" ry="4" fill="#E8B796" opacity="0.3" />
+              <ellipse cx="140" cy="65" rx="8" ry="4" fill="#E8B796" opacity="0.3" />
             </g>
             
-            {/* Neck with realistic proportions */}
+            {/* Muscular Neck */}
             <path 
-              d="M 110 75 L 130 75 Q 132 80 130 90 L 128 95 L 112 95 L 110 90 Q 108 80 110 75 Z"
+              d="M 125 75 L 155 75 Q 160 80 157 90 L 154 95 L 126 95 L 123 90 Q 120 80 125 75 Z"
               fill="url(#skinGradient)"
               stroke="#C4956C"
               strokeWidth="1"
             />
             
+            {/* Neck muscle definition */}
+            <ellipse cx="135" cy="85" rx="3" ry="8" fill="#E8B796" opacity="0.4" />
+            <ellipse cx="145" cy="85" rx="3" ry="8" fill="#E8B796" opacity="0.4" />
+            
             {/* Adam's apple for male */}
             {gender === 'M' && (
-              <ellipse cx="120" cy="87" rx="2" ry="3" fill="#E8B796" opacity="0.4" />
+              <ellipse cx="140" cy="87" rx="2" ry="3" fill="#E8B796" opacity="0.4" />
             )}
             
-            {/* Realistic body with proper anatomy */}
+            {/* BODYBUILDER PHYSIQUE */}
             {gender === 'M' ? (
               <g>
-                {/* Male torso with defined muscles */}
+                {/* Male bodybuilder torso - much broader and more muscular */}
                 <path
-                  d="M 90 95 L 150 95 Q 155 100 152 110 L 148 220 L 92 220 Q 85 110 88 100 Q 85 100 90 95 Z"
+                  d="M 80 95 L 200 95 Q 210 100 205 115 L 200 250 L 80 250 Q 70 115 75 100 Q 70 100 80 95 Z"
                   fill="url(#muscleGradient)"
                   stroke="#C4956C"
                   strokeWidth="1.5"
                 />
                 
-                {/* Pectoral muscles */}
-                <ellipse cx="105" cy="125" rx="10" ry="15" fill="#E8B796" opacity="0.4" />
-                <ellipse cx="135" cy="125" rx="10" ry="15" fill="#E8B796" opacity="0.4" />
+                {/* MASSIVE Pectoral muscles */}
+                <ellipse cx="115" cy="125" rx="18" ry="22" fill="url(#muscleHighlight)" opacity="0.7" />
+                <ellipse cx="165" cy="125" rx="18" ry="22" fill="url(#muscleHighlight)" opacity="0.7" />
                 
-                {/* Chest separation */}
-                <path d="M 120 110 L 120 145" stroke="#D4A373" strokeWidth="1" opacity="0.6" />
+                {/* Pectoral muscle separation */}
+                <path d="M 140 105 L 140 150" stroke="#C4956C" strokeWidth="2" opacity="0.8" />
                 
-                {/* Abdominal muscles */}
-                <rect x="113" y="150" width="14" height="8" rx="3" fill="#E8B796" opacity="0.3" />
-                <rect x="113" y="165" width="14" height="8" rx="3" fill="#E8B796" opacity="0.3" />
-                <rect x="113" y="180" width="14" height="8" rx="3" fill="#E8B796" opacity="0.3" />
+                {/* Inner pectoral definition */}
+                <ellipse cx="125" cy="130" rx="8" ry="15" fill="url(#muscleShadow)" opacity="0.4" />
+                <ellipse cx="155" cy="130" rx="8" ry="15" fill="url(#muscleShadow)" opacity="0.4" />
                 
-                {/* Side muscle definition */}
-                <path d="M 92 140 Q 88 145 92 150" stroke="#D4A373" strokeWidth="1" opacity="0.4" />
-                <path d="M 148 140 Q 152 145 148 150" stroke="#D4A373" strokeWidth="1" opacity="0.4" />
+                {/* SIX-PACK Abdominal muscles */}
+                <rect x="125" y="160" width="12" height="12" rx="4" fill="url(#muscleHighlight)" opacity="0.6" />
+                <rect x="143" y="160" width="12" height="12" rx="4" fill="url(#muscleHighlight)" opacity="0.6" />
+                <rect x="125" y="178" width="12" height="12" rx="4" fill="url(#muscleHighlight)" opacity="0.6" />
+                <rect x="143" y="178" width="12" height="12" rx="4" fill="url(#muscleHighlight)" opacity="0.6" />
+                <rect x="125" y="196" width="12" height="12" rx="4" fill="url(#muscleHighlight)" opacity="0.6" />
+                <rect x="143" y="196" width="12" height="12" rx="4" fill="url(#muscleHighlight)" opacity="0.6" />
+                
+                {/* Oblique muscles (V-taper) */}
+                <path d="M 95 180 Q 125 190 140 220" stroke="#C4956C" strokeWidth="3" opacity="0.6" fill="none" />
+                <path d="M 185 180 Q 155 190 140 220" stroke="#C4956C" strokeWidth="3" opacity="0.6" fill="none" />
+                
+                {/* Serratus anterior (side ribs) */}
+                <g opacity="0.5">
+                  <ellipse cx="100" cy="150" rx="3" ry="8" fill="url(#muscleShadow)" />
+                  <ellipse cx="95" cy="165" rx="3" ry="8" fill="url(#muscleShadow)" />
+                  <ellipse cx="92" cy="180" rx="3" ry="8" fill="url(#muscleShadow)" />
+                  <ellipse cx="180" cy="150" rx="3" ry="8" fill="url(#muscleShadow)" />
+                  <ellipse cx="185" cy="165" rx="3" ry="8" fill="url(#muscleShadow)" />
+                  <ellipse cx="188" cy="180" rx="3" ry="8" fill="url(#muscleShadow)" />
+                </g>
+                
+                {/* Lats (latissimus dorsi) - side muscles */}
+                <ellipse cx="88" cy="160" rx="8" ry="25" fill="url(#muscleHighlight)" opacity="0.4" />
+                <ellipse cx="192" cy="160" rx="8" ry="25" fill="url(#muscleHighlight)" opacity="0.4" />
               </g>
             ) : (
               <g>
-                {/* Female torso with curves */}
+                {/* Female athletic torso */}
                 <path
-                  d="M 95 95 L 145 95 Q 148 105 145 120 Q 142 140 145 160 L 145 220 L 95 220 L 95 160 Q 98 140 95 120 Q 92 105 95 95 Z"
+                  d="M 105 95 L 175 95 Q 180 105 175 120 Q 172 140 175 160 L 175 250 L 105 250 L 105 160 Q 108 140 105 120 Q 102 105 105 95 Z"
                   fill="url(#muscleGradient)"
                   stroke="#C4956C"
                   strokeWidth="1.5"
                 />
                 
-                {/* Chest contour */}
-                <ellipse cx="110" cy="120" rx="8" ry="12" fill="#E8B796" opacity="0.3" />
-                <ellipse cx="130" cy="120" rx="8" ry="12" fill="#E8B796" opacity="0.3" />
+                {/* Athletic chest definition */}
+                <ellipse cx="125" cy="120" rx="12" ry="18" fill="url(#muscleHighlight)" opacity="0.4" />
+                <ellipse cx="155" cy="120" rx="12" ry="18" fill="url(#muscleHighlight)" opacity="0.4" />
+                
+                {/* Toned abs */}
+                <rect x="130" y="160" width="8" height="10" rx="3" fill="url(#muscleHighlight)" opacity="0.4" />
+                <rect x="142" y="160" width="8" height="10" rx="3" fill="url(#muscleHighlight)" opacity="0.4" />
+                <rect x="130" y="175" width="8" height="10" rx="3" fill="url(#muscleHighlight)" opacity="0.4" />
+                <rect x="142" y="175" width="8" height="10" rx="3" fill="url(#muscleHighlight)" opacity="0.4" />
                 
                 {/* Waist definition */}
-                <path d="M 98 160 Q 120 155 142 160" stroke="#D4A373" strokeWidth="1" opacity="0.4" />
+                <path d="M 108 160 Q 140 155 172 160" stroke="#D4A373" strokeWidth="1" opacity="0.4" />
               </g>
             )}
             
-            {/* Enhanced Arms with realistic muscle definition */}
+            {/* MASSIVE BODYBUILDER ARMS */}
             <g>
-              {/* Left arm */}
-              <ellipse cx="78" cy="130" rx="12" ry="35" fill="url(#skinGradient)" stroke="#C4956C" strokeWidth="1" />
-              {/* Bicep muscle */}
-              <ellipse cx="76" cy="115" rx="5" ry="12" fill="#E8B796" opacity="0.4" />
-              {/* Forearm definition */}
-              <ellipse cx="80" cy="145" rx="4" ry="15" fill="#E8B796" opacity="0.3" />
-              {/* Elbow */}
-              <ellipse cx="78" cy="130" rx="3" ry="4" fill="#D4A373" opacity="0.5" />
+              {/* Left arm - much bigger and more muscular */}
+              <ellipse cx="60" cy="140" rx="20" ry="45" fill="url(#skinGradient)" stroke="#C4956C" strokeWidth="1" />
               
-              {/* Right arm */}
-              <ellipse cx="162" cy="130" rx="12" ry="35" fill="url(#skinGradient)" stroke="#C4956C" strokeWidth="1" />
-              {/* Bicep muscle */}
-              <ellipse cx="164" cy="115" rx="5" ry="12" fill="#E8B796" opacity="0.4" />
-              {/* Forearm definition */}
-              <ellipse cx="160" cy="145" rx="4" ry="15" fill="#E8B796" opacity="0.3" />
-              {/* Elbow */}
-              <ellipse cx="162" cy="130" rx="3" ry="4" fill="#D4A373" opacity="0.5" />
+              {/* HUGE Bicep peak */}
+              <ellipse cx="55" cy="115" rx="12" ry="20" fill="url(#muscleHighlight)" opacity="0.8" />
+              {/* Bicep peak highlight */}
+              <ellipse cx="52" cy="110" rx="6" ry="12" fill="#FFE4C7" opacity="0.6" />
+              
+              {/* Tricep muscle */}
+              <ellipse cx="65" cy="120" rx="8" ry="18" fill="url(#muscleShadow)" opacity="0.6" />
+              
+              {/* Forearm muscles */}
+              <ellipse cx="58" cy="160" rx="8" ry="20" fill="url(#muscleHighlight)" opacity="0.5" />
+              <ellipse cx="62" cy="165" rx="5" ry="15" fill="url(#muscleShadow)" opacity="0.4" />
+              
+              {/* Elbow definition */}
+              <ellipse cx="60" cy="140" rx="4" ry="6" fill="#D4A373" opacity="0.7" />
+              
+              {/* Muscle striations */}
+              <path d="M 50 120 Q 55 125 50 130" stroke="#C4956C" strokeWidth="1" opacity="0.3" />
+              <path d="M 52 125 Q 57 130 52 135" stroke="#C4956C" strokeWidth="1" opacity="0.3" />
+              
+              {/* Right arm - mirror image */}
+              <ellipse cx="220" cy="140" rx="20" ry="45" fill="url(#skinGradient)" stroke="#C4956C" strokeWidth="1" />
+              
+              {/* HUGE Bicep peak */}
+              <ellipse cx="225" cy="115" rx="12" ry="20" fill="url(#muscleHighlight)" opacity="0.8" />
+              <ellipse cx="228" cy="110" rx="6" ry="12" fill="#FFE4C7" opacity="0.6" />
+              
+              {/* Tricep muscle */}
+              <ellipse cx="215" cy="120" rx="8" ry="18" fill="url(#muscleShadow)" opacity="0.6" />
+              
+              {/* Forearm muscles */}
+              <ellipse cx="222" cy="160" rx="8" ry="20" fill="url(#muscleHighlight)" opacity="0.5" />
+              <ellipse cx="218" cy="165" rx="5" ry="15" fill="url(#muscleShadow)" opacity="0.4" />
+              
+              {/* Elbow definition */}
+              <ellipse cx="220" cy="140" rx="4" ry="6" fill="#D4A373" opacity="0.7" />
+              
+              {/* Muscle striations */}
+              <path d="M 230 120 Q 225 125 230 130" stroke="#C4956C" strokeWidth="1" opacity="0.3" />
+              <path d="M 228 125 Q 223 130 228 135" stroke="#C4956C" strokeWidth="1" opacity="0.3" />
             </g>
             
-            {/* Ultra-realistic T-Shirt with fabric physics */}
+            {/* Enhanced T-Shirt fitting the bodybuilder physique */}
             <g>
               <path
                 d={gender === 'M' 
-                  ? "M 85 95 L 155 95 Q 157 100 155 105 L 150 170 L 90 170 Q 83 105 85 100 Q 83 100 85 95 Z"
-                  : "M 90 95 L 150 95 Q 152 100 150 105 L 145 170 L 95 170 Q 88 105 90 100 Q 88 100 90 95 Z"
+                  ? "M 75 95 L 205 95 Q 210 100 205 108 L 200 180 L 80 180 Q 70 108 75 100 Q 70 100 75 95 Z"
+                  : "M 100 95 L 180 95 Q 185 100 180 108 L 175 180 L 105 180 Q 95 108 100 100 Q 95 100 100 95 Z"
                 }
                 fill="url(#tshirtGradient)"
                 stroke="#374151"
@@ -255,26 +303,25 @@ const MannequinPreview = ({ config }: MannequinPreviewProps) => {
                 opacity="0.95"
               />
               
-              {/* T-Shirt sleeves with realistic draping */}
-              <ellipse cx="78" cy="110" rx="15" ry="25" fill={color} opacity="0.85" stroke="#374151" strokeWidth="1.5" />
-              <ellipse cx="162" cy="110" rx="15" ry="25" fill={color} opacity="0.85" stroke="#374151" strokeWidth="1.5" />
+              {/* T-Shirt sleeves stretched over massive arms */}
+              <ellipse cx="60" cy="120" rx="22" ry="35" fill={color} opacity="0.85" stroke="#374151" strokeWidth="1.5" />
+              <ellipse cx="220" cy="120" rx="22" ry="35" fill={color} opacity="0.85" stroke="#374151" strokeWidth="1.5" />
               
-              {/* Shirt collar with depth */}
-              <path d="M 112 95 Q 120 100 128 95" stroke="#374151" strokeWidth="2.5" fill="none" />
-              <path d="M 115 96 Q 120 98 125 96" stroke="#374151" strokeWidth="1" fill="none" opacity="0.6" />
+              {/* Shirt collar */}
+              <path d="M 125 95 Q 140 100 155 95" stroke="#374151" strokeWidth="2.5" fill="none" />
               
-              {/* Custom design with realistic perspective */}
+              {/* Custom design stretched over muscles */}
               {customImage && (
                 <g>
                   <defs>
                     <clipPath id="shirtClip">
-                      <ellipse cx="120" cy="130" rx="22" ry="30" />
+                      <ellipse cx="140" cy="135" rx="35" ry="40" />
                     </clipPath>
                     <filter id="designShadow">
                       <feDropShadow dx="1" dy="1" stdDeviation="1" floodOpacity="0.3"/>
                     </filter>
                   </defs>
-                  <foreignObject x="98" y="105" width="44" height="50" clipPath="url(#shirtClip)" filter="url(#designShadow)">
+                  <foreignObject x="105" y="105" width="70" height="60" clipPath="url(#shirtClip)" filter="url(#designShadow)">
                     <img 
                       src={customImage} 
                       alt="Custom design" 
@@ -288,17 +335,17 @@ const MannequinPreview = ({ config }: MannequinPreviewProps) => {
                 </g>
               )}
               
-              {/* Realistic fabric wrinkles and shadows */}
-              <path d="M 95 145 Q 120 147 145 145" stroke="#374151" strokeWidth="0.8" opacity="0.2" fill="none" />
-              <path d="M 100 155 Q 120 156 140 155" stroke="#374151" strokeWidth="0.6" opacity="0.15" fill="none" />
-              <path d="M 105 165 Q 120 166 135 165" stroke="#374151" strokeWidth="0.4" opacity="0.1" fill="none" />
+              {/* Fabric stress lines from muscles */}
+              <path d="M 85 125 Q 140 127 195 125" stroke="#374151" strokeWidth="0.8" opacity="0.3" fill="none" />
+              <path d="M 90 145 Q 140 147 190 145" stroke="#374151" strokeWidth="0.8" opacity="0.2" fill="none" />
+              <path d="M 95 165 Q 140 166 185 165" stroke="#374151" strokeWidth="0.6" opacity="0.15" fill="none" />
               
               {/* Shirt hem */}
-              <path d="M 90 170 Q 120 172 150 170" stroke="#374151" strokeWidth="1.5" opacity="0.4" />
+              <path d="M 80 180 Q 140 182 200 180" stroke="#374151" strokeWidth="1.5" opacity="0.4" />
             </g>
           </svg>
           
-          {/* Enhanced size indicator with realistic styling */}
+          {/* Size indicator */}
           <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2">
             <div className="bg-gradient-to-r from-slate-800 via-slate-900 to-slate-800 text-white px-6 py-3 rounded-full text-sm font-bold shadow-xl border border-slate-600">
               <span className="text-yellow-400">Size:</span> {size} ({gender === 'M' ? 'Male' : 'Female'})
