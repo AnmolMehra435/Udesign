@@ -39,7 +39,7 @@ const Navigation = () => {
     { path: '/', label: 'Home' },
     { path: '/designer', label: 'Designer' },
     { path: '/about', label: 'About' },
-    { path: '/contact', label: 'Contact' },
+    { path: '/feedback', label: 'Feedback' },
     { path: '/auth', label: 'Login / Sign Up' },
   ];
 
