@@ -141,10 +141,10 @@ const DeliveryStep = ({ formData, setFormData, onNext }: DeliveryStepProps) => {
 
       {/* Post Code */}
       <div className="space-y-2">
-        <Label htmlFor="postcode">Post Code *</Label>
+        <Label htmlFor="postcode">Pin Code *</Label>
         <Input
           id="postcode"
-          placeholder="Enter post code"
+          placeholder="Enter pin code"
           required
           value={formData.postcode}
           onChange={(e) => setFormData({ ...formData, postcode: e.target.value })}
