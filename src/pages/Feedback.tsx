@@ -1,35 +1,61 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/components/ui/use-toast';
-import { MessageSquare, User, Phone, Mail } from 'lucide-react';
+import { MessageSquare, Star } from 'lucide-react';
 
 interface FeedbackForm {
-  name: string;
-  phone: string;
-  email: string;
-  foundUs: string;
+  rating: number;
   comments: string;
 }
+
+const StarRating = ({ rating, onRatingChange }: { rating: number; onRatingChange: (rating: number) => void }) => {
+  const [hoveredRating, setHoveredRating] = useState(0);
+
+  return (
+    <div className="flex items-center justify-center space-x-1">
+      {[1, 2, 3, 4, 5].map((star) => (
+        <button
+          key={star}
+          type="button"
+          onClick={() => onRatingChange(star)}
+          onMouseEnter={() => setHoveredRating(star)}
+          onMouseLeave={() => setHoveredRating(0)}
+          className="focus:outline-none"
+        >
+          <Star
+            className={`w-8 h-8 transition-colors ${
+              star <= (hoveredRating || rating)
+                ? 'fill-yellow-400 text-yellow-400'
+                : 'text-gray-300 dark:text-gray-600'
+            }`}
+          />
+        </button>
+      ))}
+    </div>
+  );
+};
 
 const Feedback = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState<FeedbackForm>({
-    name: '',
-    phone: '',
-    email: '',
-    foundUs: '',
+    rating: 0,
     comments: ''
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (formData.rating === 0) {
+      toast({
+        title: "Please select a rating",
+        description: "You must select a star rating before submitting.",
+        variant: "destructive"
+      });
+      return;
+    }
     // Here you would typically send the feedback to your backend
     console.log('Feedback submitted:', formData);
     toast({
@@ -37,21 +63,10 @@ const Feedback = () => {
       description: "Thank you for your feedback. We appreciate your input!",
     });
     setFormData({
-      name: '',
-      phone: '',
-      email: '',
-      foundUs: '',
+      rating: 0,
       comments: ''
     });
   };
-
-  const foundUsOptions = [
-    "Search Engine",
-    "Social Media",
-    "Friend/Family",
-    "Advertisement",
-    "Other"
-  ];
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -73,74 +88,15 @@ const Feedback = () => {
         <div className="max-w-2xl mx-auto">
           <Card className="p-6">
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name */}
-              <div className="space-y-2">
-                <Label htmlFor="name">Name</Label>
-                <div className="relative">
-                  <User className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                  <Input
-                    id="name"
-                    placeholder="Enter your name"
-                    className="pl-9"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    required
-                  />
-                </div>
-              </div>
-
-              {/* Phone */}
-              <div className="space-y-2">
-                <Label htmlFor="phone">Phone Number</Label>
-                <div className="relative">
-                  <Phone className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                  <Input
-                    id="phone"
-                    type="tel"
-                    placeholder="Enter your phone number"
-                    className="pl-9"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    required
-                  />
-                </div>
-              </div>
-
-              {/* Email */}
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="Enter your email"
-                    className="pl-9"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    required
-                  />
-                </div>
-              </div>
-
-              {/* How did you find us */}
-              <div className="space-y-2">
-                <Label htmlFor="foundUs">How did you find us?</Label>
-                <Select 
-                  value={formData.foundUs}
-                  onValueChange={(value) => setFormData({ ...formData, foundUs: value })}
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select how you found us" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {foundUsOptions.map((option) => (
-                      <SelectItem key={option} value={option}>
-                        {option}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+              {/* Star Rating */}
+              <div className="space-y-4">
+                <Label className="block text-center text-lg font-semibold">
+                  How would you rate your experience?
+                </Label>
+                <StarRating 
+                  rating={formData.rating} 
+                  onRatingChange={(rating) => setFormData({ ...formData, rating })} 
+                />
               </div>
 
               {/* Comments */}
@@ -163,18 +119,6 @@ const Feedback = () => {
                 Submit Feedback
               </Button>
             </form>
-
-            <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 text-center">
-              <p className="text-gray-600 dark:text-gray-400">
-                Have a specific query? {' '}
-                <Link 
-                  to="/contact" 
-                  className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
-                >
-                  Contact us directly
-                </Link>
-              </p>
-            </div>
           </Card>
         </div>
       </div>

@@ -8,6 +8,7 @@ import { Label } from '../components/ui/label';
 import { useToast } from '../components/ui/use-toast';
 import { ShoppingBag, MapPin, Phone, User, Mail, Check } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
+import { RadioGroup, RadioGroupItem } from '../components/ui/radio-group';
 
 // Types
 interface FormData {
@@ -267,17 +268,24 @@ const PaymentStep = ({ formData, onBack, onSubmit, isLoading }: PaymentStepProps
         {/* Payment Method Selection */}
         <div className="space-y-2">
           <Label htmlFor="paymentMethod">Payment Method *</Label>
-          <Select onValueChange={handlePaymentMethodChange}>
-            <SelectTrigger>
-              <SelectValue placeholder="Select payment method" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="card">Credit/Debit Card</SelectItem>
-              <SelectItem value="upi">UPI</SelectItem>
-              <SelectItem value="cod">Cash on Delivery</SelectItem>
-              <SelectItem value="netbanking">Net Banking</SelectItem>
-            </SelectContent>
-          </Select>
+          <RadioGroup onValueChange={handlePaymentMethodChange} className="space-y-3">
+            <div className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
+              <RadioGroupItem value="card" id="card" />
+              <Label htmlFor="card">Credit/Debit Card</Label>
+            </div>
+            <div className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
+              <RadioGroupItem value="upi" id="upi" />
+              <Label htmlFor="upi">UPI</Label>
+            </div>
+            <div className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
+              <RadioGroupItem value="cod" id="cod" />
+              <Label htmlFor="cod">Cash on Delivery</Label>
+            </div>
+            <div className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
+              <RadioGroupItem value="netbanking" id="netbanking" />
+              <Label htmlFor="netbanking">Net Banking</Label>
+            </div>
+          </RadioGroup>
         </div>
 
         {/* Card Details */}

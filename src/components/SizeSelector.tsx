@@ -1,4 +1,3 @@
-
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Button } from '@/components/ui/button';
@@ -55,7 +54,7 @@ const SizeSelector = ({ size, gender, onSizeChange, onGenderChange }: SizeSelect
           T-Shirt Size
         </Label>
         <RadioGroup value={size} onValueChange={onSizeChange} className="grid grid-cols-2 gap-4">
-          {Object.entries(sizeData).map(([sizeKey, measurements]) => (
+          {Object.keys(sizeData).map((sizeKey) => (
             <div key={sizeKey} className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
               <RadioGroupItem value={sizeKey} id={sizeKey} />
               <Label 
@@ -63,12 +62,6 @@ const SizeSelector = ({ size, gender, onSizeChange, onGenderChange }: SizeSelect
                 className="flex-1 cursor-pointer font-medium text-gray-900 dark:text-gray-100"
               >
                 <div className="font-bold">{sizeKey}</div>
-                <div className="text-xs text-gray-600 dark:text-gray-400">
-                  Chest: {measurements.chest}cm
-                </div>
-                <div className="text-xs text-gray-600 dark:text-gray-400">
-                  Length: {measurements.length}cm
-                </div>
               </Label>
             </div>
           ))}

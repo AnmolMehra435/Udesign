@@ -6,8 +6,8 @@ Steps to clone and run this website in local repository.
 
 
 git init
-git clone https://github.com/AnmolMehra435/Udesign.git
-cd Udesign
+git clone https://github.com/AnmolMehra435/Looma.git
+cd Looma
 npm i
 npm run dev
 

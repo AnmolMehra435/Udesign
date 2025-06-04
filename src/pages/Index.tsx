@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Sparkles, Palette, Heart, Star } from 'lucide-react';
@@ -35,8 +34,8 @@ const Index = () => {
       <section className="py-20 bg-white dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-gray-900 dark:text-gray-100 mb-4">
-              Why Choose Udesign?
+            <h2 className="text-3xl font-black text-gray-900 dark:text-gray-100 mb-8">
+              Why Choose Looma?
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto font-semibold">
               Our platform combines ease of use with powerful customization options
@@ -99,10 +98,10 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <Palette className="h-6 w-6 text-gray-400" />
-            <span className="font-black text-xl">Udesign</span>
+            <span className="font-black text-xl">Looma</span>
           </div>
           <p className="text-gray-400 font-medium">
-            © 2024 Udesign. All rights reserved.
+            © 2024 Looma. All rights reserved.
           </p>
         </div>
       </footer>

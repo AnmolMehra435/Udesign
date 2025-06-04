@@ -1,4 +1,3 @@
-
 import Navigation from '@/components/Navigation';
 import { Heart, Users, Sparkles } from 'lucide-react';
 
@@ -9,8 +8,8 @@ const About = () => {
       
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
-            About uDesign Dress Creator
+          <h1 className="text-4xl font-black text-gray-900 dark:text-gray-100 mb-4">
+            About Looma Dress Creator
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-semibold">
             We believe that every woman deserves to wear a dress that makes her feel confident, 
@@ -22,7 +21,7 @@ const About = () => {
           <h2 className="text-3xl font-black text-gray-900 mb-6">Our Story</h2>
           <div className="prose prose-lg text-gray-600 max-w-none">
             <p className="mb-6 font-medium">
-              Founded in 2024, uDesign Dress Creator was born from a simple observation: 
+              Founded in 2024, Looma Dress Creator was born from a simple observation: 
               fashion should be personal, accessible, and fun. We noticed that many women 
               struggled to find dresses that perfectly matched their vision, style, and body type.
             </p>

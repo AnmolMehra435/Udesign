@@ -49,8 +49,8 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2 group">
             <Palette className="h-8 w-8 text-gray-800 dark:text-gray-200 group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors" />
-            <span className="font-bold text-xl text-gray-900 dark:text-gray-100">
-              Udesign
+            <span className="font-black text-xl text-gray-900 dark:text-gray-100">
+              Looma
             </span>
           </Link>
           

@@ -48,8 +48,8 @@ const Auth = () => {
           <div className="inline-block p-3 rounded-full bg-gray-100 dark:bg-gray-800 mb-4">
             <Palette className="h-8 w-8 text-gray-900 dark:text-gray-100" />
           </div>
-          <h1 className="text-3xl font-black text-gray-900 dark:text-gray-100">
-            Welcome to Udesign
+          <h1 className="text-2xl font-black text-gray-900 dark:text-gray-100 mb-2">
+            Welcome to Looma
           </h1>
           <p className="text-gray-600 dark:text-gray-400 mt-2 font-semibold">
             Sign in to your account or create a new one

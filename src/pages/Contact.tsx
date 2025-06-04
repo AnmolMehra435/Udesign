@@ -1,4 +1,3 @@
-
 import Navigation from '@/components/Navigation';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -139,7 +138,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-bold text-gray-900">Email</p>
-                    <p className="text-gray-600 font-medium">hello@udesign-dress-creator.com</p>
+                    <p className="text-gray-600 font-medium">hello@looma-dress-creator.com</p>
                   </div>
                 </div>
                 
